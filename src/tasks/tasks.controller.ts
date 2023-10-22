@@ -11,14 +11,14 @@ import {
 import { TasksService } from './tasks.service';
 import { Task, TaskStatus } from './task.model';
 import { CreateTaskDto } from './dto/create-task.dto';
-import { getTasksFilterDto } from './dto/get-tasks-filter.dto';
+import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 
 @Controller('tasks')
 export class TasksController {
   constructor(private tasksService: TasksService) {}
 
   @Get()
-  getTasks(@Query() filterDto: getTasksFilterDto): Task[] {
+  getTasks(@Query() filterDto: GetTasksFilterDto): Task[] {
     // if we have any filters defined, call taskService.getTaskWithFilters
     // Otherwise, just get all tasks
     if (Object.keys(filterDto).length) {
